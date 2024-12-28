@@ -24,3 +24,16 @@ func (linkedList *LinkedList[T]) Push(value T) {
 	}
 	next.next = &Node[T]{data: value}
 }
+
+func (linkedList *LinkedList[T]) Get(index int) *T {
+	if linkedList.Node == nil {
+		return nil
+	}
+	next := linkedList.Node
+	counter := 0
+	for next != nil && next.next != nil && counter < index {
+		next = next.next
+		counter++
+	}
+	return &next.data
+}

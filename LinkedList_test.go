@@ -23,3 +23,13 @@ func TestPush(t *testing.T) {
 		list.Push(251)
 	})
 }
+
+func TestGet(t *testing.T) {
+	assert := assert.New(t)
+	assert.NotPanics(func() {
+		list := linkedlist.NewLinkedList[int]()
+		list.Push(251)
+		ferst := list.Get(0)
+		assert.Equal(251, *ferst, "проверка первого элемента")
+	})
+}
