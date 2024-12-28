@@ -15,3 +15,11 @@ func TestNewLinkedList(t *testing.T) {
 		linkedlist.NewLinkedList[int]()
 	})
 }
+
+func TestPush(t *testing.T) {
+	assert := assert.New(t)
+	assert.NotPanics(func() {
+		list := linkedlist.NewLinkedList[int]()
+		list.Push(251)
+	})
+}
