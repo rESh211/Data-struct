@@ -5,7 +5,7 @@ import (
 
 	//github.com/rESh211/Data-struct.git"
 
-	linkedlist "github.com/rESh211/Data-struct/LinkedList"
+	linkedlist "github.com/rESh211/Data-struct.git/linkedlist"
 	"github.com/stretchr/testify/assert"
 )
 
