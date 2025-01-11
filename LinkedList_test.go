@@ -39,5 +39,20 @@ func TestGet(t *testing.T) {
 		assert.Equal(487, *third, "проверка третьего элемента")
 		second = list.Get(1)
 		assert.Equal(52, *second, "повторная проверка второго элемента")
+		assert.Nil(list.Get(3), "выход за границы индекса")
+		assert.Panics(func() { list.Get(-1) }, "использование отрицательных значений")
+
+	})
+}
+
+func TestSize(t *testing.T) {
+	assert := assert.New(t)
+	assert.NotPanics(func() {
+		list := linkedlist.NewLinkedList[int]()
+		assert.Equal(0, list.Size(), "проверка size пустого списка")
+		list.Push(2)
+		assert.Equal(1, list.Size(), " size не пустого списка")
+		list.Push(3)
+		assert.Equal(2, list.Size(), " size не пустого списка")
 	})
 }

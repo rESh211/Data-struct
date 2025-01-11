@@ -26,6 +26,12 @@ func (linkedList *LinkedList[T]) Push(value T) {
 }
 
 func (linkedList *LinkedList[T]) Get(index int) *T {
+	if index < 0 {
+		panic("индекс не может быть отрицательным числом")
+	}
+	if linkedList.Size() <= index {
+		return nil
+	}
 	if linkedList.Node == nil {
 		return nil
 	}
@@ -36,4 +42,18 @@ func (linkedList *LinkedList[T]) Get(index int) *T {
 		counter++
 	}
 	return &next.data
+}
+
+func (linkedList *LinkedList[T]) Size() int {
+	size := 0
+	if linkedList.Node == nil {
+		return size
+	}
+	next := linkedList.Node
+	size++
+	for next != nil && next.next != nil {
+		next = next.next
+		size++
+	}
+	return size
 }
